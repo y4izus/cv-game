@@ -1,0 +1,75 @@
+body {
+  background: url("http://teamfannypack.com/images/pagebackground.jpg");
+}
+
+canvas {
+  border: 2px solid;
+}
+
+#wrapper {
+  height: 480px;
+  width: 640px;
+  margin: auto;
+  position: relative;
+}
+
+#myCanvas {
+  background-size: 100% 100%;
+}
+
+#instructions {
+  margin: auto;
+  width: 60%;
+  padding: 20px;
+  display: block;
+  font-family: "Press Start 2P", cursive;
+  text-align: justify;
+}
+
+b {
+  font-size: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #000000;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: "Press Start 2P", cursive;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
