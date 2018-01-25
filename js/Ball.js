@@ -1,23 +1,25 @@
-class Ball {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.radius = 10;
-    this._draw();
-  }
+function Ball(x, y, ctx) {
+  this.ctx = ctx;
+  this.x = x;
+  this.y = y;
+  this.radius = 10;
+  this.speed = 2;
+  this.draw();
+  this.intervalBallTime = 50;
+}
 
-  _draw() {
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#000000";
-    ctx.fill();
-  }
+Ball.prototype.draw = function () {
+  this.ctx.beginPath();
+  this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+  this.ctx.fillStyle = "#000000";
+  this.ctx.fill();
+};
 
-  initMovement() {
-    console.log("Inicia el movimiento de la bola");
-    // this.x += dx
-    // this.y += dy
-  }
+Ball.prototype.initMovement = function () {
+  this.ballIntervalId = setInterval(this.move.bind(this), this.intervalBallTime);
+};
+
+Ball.prototype.move = function (){
+  this.x += this.speed;
+  this.y += this.speed;
 }

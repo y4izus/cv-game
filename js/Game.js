@@ -1,15 +1,16 @@
-class Game {
-   constructor() {
-     this.ball = new Ball(50, 50)
-     this.intervalGameTime = 50
-   }
+function Game(canvas, ctx) {
+  this.canvas = canvas;
+  this.ctx = ctx;
 
-   start() {
-    this.gameIntervalId = setInterval(this.updateState, this.intervalGameTime)
-   }
+  this.ball = new Ball(50, 50, this.ctx);
+  this.intervalGameTime = 50;
+}
 
-   updateState() {
-      
-   }
- }
+Game.prototype.start = function() {
+  this.gameIntervalId = setInterval(this.updateState.bind(this), this.intervalGameTime);
+};
 
+Game.prototype.updateState = function() {
+  this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  this.ball.draw()
+};
