@@ -13,7 +13,12 @@ function initGame() {
   $("#instructions").css({ display: "none" });
   $("#wrapper").css({ display: "block" });
 
+  //TODO improve movement
   $(document).on("keydown", e => {
     if (e.keyCode == 38) game.ball.initMovement();
+    if (e.keyCode == 39 && game.player.x < canvas.width - game.player.width)
+      game.player.move('right');
+    if (e.keyCode == 37 && game.player.x > 0) 
+      game.player.move('left');
   });
 }
