@@ -4,8 +4,9 @@ function Ball(x, y, ctx) {
   this.y = y;
   this.radius = 10;
   this.speed = 2;
-  this.draw();
   this.intervalBallTime = 50;
+  
+  this.draw();
 }
 
 Ball.prototype.draw = function () {
