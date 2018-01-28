@@ -10,6 +10,17 @@ function Game(canvas, ctx) {
   this.bricks = this._createBricksArray();
   this.movePlayer = false;
   this.moveBall = false;
+
+  this.showLogo = false;
+  this.logo = {
+    height: canvas.width * 0.15,
+    width: canvas.width * 0.15,
+    x: (canvas.width - this.player.width) / 2,
+    y: 0,
+    img: new Image()
+  };
+  this.logo.img.src =
+    "https://avatars2.githubusercontent.com/u/2041155?s=200&v=4";
 }
 
 Game.prototype.start = function() {
@@ -21,14 +32,27 @@ Game.prototype.start = function() {
 
 Game.prototype.updateState = function() {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
   if (this.moveBall) this.ball.move(this);
   this.ball.draw();
   this.player.draw();
   this.bricks.forEach(e => e.draw());
-  this._drawProgress()
-  if(this.discoveredLevels === 3){
-    // this.stop()
-    $('#ver-cv').removeAttr("disabled")
+  this._drawProgress();
+
+  if (this.discoveredLevels === 3) {
+    this._stop();
+    $("#ver-cv").removeAttr("disabled");
+  }
+  if (this.showLogo) {
+    this.ctx.drawImage(
+      this.logo.img,
+      this.logo.x,
+      this.logo.y,
+      this.logo.width,
+      this.logo.height
+    );
+    this.logo.y += 7;
+    this.player.center();
   }
 };
 
@@ -39,7 +63,7 @@ Game.prototype._createBricksArray = function() {
     e.x = column * (e.width + e.padding) + e.offsetLeft;
     e.y = row * (e.height + e.padding) + e.offsetTop;
 
-    if(i=== 2 || i === 5 || i === 13) e.hasInfo = true
+    if (i === 2 || i === 5 || i === 13) e.hasInfo = true;
 
     column++;
     i++;
@@ -53,5 +77,10 @@ Game.prototype._createBricksArray = function() {
 };
 
 Game.prototype._drawProgress = function() {
-  $('progress').attr("value", this.discoveredLevels*33.3333333 )
+  $("progress").attr("value", this.discoveredLevels * 33.3333333);
+};
+
+Game.prototype._stop = function() {
+  this.showLogo = true;
+  this.moveBall = false;
 };

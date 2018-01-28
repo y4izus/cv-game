@@ -3,24 +3,17 @@ function Player(canvas, ctx) {
   this.ctx = ctx;
   this.height = canvas.width * 0.2;
   this.width = canvas.width * 0.2;
-  this.x = (canvas.width - this.width) / 2;
-  this.y = canvas.height - this.height
-  this.speed = 5;
+  this.speed = 7;
   this.img = new Image();
   this.img.src =
-    "https://www.dropbox.com/s/esxajjnx8emcytr/personbar.png?raw=1";
-
+  "https://www.dropbox.com/s/esxajjnx8emcytr/personbar.png?raw=1";
+  
+  this.center();
   this.draw();
 }
 
 Player.prototype.draw = function() {
-  this.ctx.drawImage(
-    this.img,
-    this.x,
-    this.y,
-    this.width,
-    this.height
-  );
+  this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
 };
 
 Player.prototype.move = function(direction) {
@@ -32,4 +25,9 @@ Player.prototype.move = function(direction) {
       this.x += this.speed;
       break;
   }
+};
+
+Player.prototype.center = function() {
+  this.x = (this.canvas.width - this.width) / 2;
+  this.y = this.canvas.height - this.height;
 };

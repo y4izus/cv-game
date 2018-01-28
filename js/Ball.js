@@ -4,10 +4,9 @@ function Ball(x, y, canvas, ctx) {
   this.x = x;
   this.y = y;
   this.radius = 10;
-  this.speedX = 7;
-  this.speedY = -7;
+  this.speedX = 10;
+  this.speedY = -10;
   this.intervalBallTime = 50;
-  this.isMoving = false;
 
   this.draw();
 }
@@ -66,7 +65,6 @@ Ball.prototype._checkCollisionWithBricks = function(game) {
       this.speedY *= -1;
       e.status = 0;
       if(e.hasInfo) game.discoveredLevels++
-      console.log(game.discoveredLevels)
     }
   });
 };
