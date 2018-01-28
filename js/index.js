@@ -17,3 +17,7 @@ function initGame() {
       game.player.move('left');
   });
 }
+
+function verCV(){
+  console.log('se ve')
+}

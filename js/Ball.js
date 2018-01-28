@@ -19,11 +19,11 @@ Ball.prototype.draw = function() {
   this.ctx.fill();
 };
 
-Ball.prototype.move = function(player, bricks) {
+Ball.prototype.move = function(game) {
   this.y += this.speedY;
   this.x += this.speedX;
-  this._checkCollisionWithBricks(bricks);
-  this._checkCollisionWithPlayer(player);
+  this._checkCollisionWithBricks(game);
+  this._checkCollisionWithPlayer(game.player);
   this._checkCollisionWithCanvas();
 };
 
@@ -60,11 +60,13 @@ Ball.prototype._hitPlayerTop = function(player) {
   );
 };
 
-Ball.prototype._checkCollisionWithBricks = function(bricks) {
-  bricks.forEach(e => {
+Ball.prototype._checkCollisionWithBricks = function(game) {
+  game.bricks.forEach(e => {
     if (e.status == 1 && this._hitBrick(e)) {
       this.speedY *= -1;
       e.status = 0;
+      if(e.hasInfo) game.discoveredLevels++
+      console.log(game.discoveredLevels)
     }
   });
 };
