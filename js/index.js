@@ -19,5 +19,6 @@ function initGame() {
 }
 
 function verCV(){
-  console.log('se ve')
+  $("#wrapper").css({ display: "none" });
+  $("#cv").css({ display: "block" });
 }
