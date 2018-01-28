@@ -19,15 +19,12 @@ Ball.prototype.draw = function() {
   this.ctx.fill();
 };
 
-Ball.prototype.initMovement = function() {
-  this.isMoving = true;
-};
-
-Ball.prototype.move = function(player) {
+Ball.prototype.move = function(player, bricks) {
   this.y += this.speedY;
   this.x += this.speedX;
-  this._checkCollisionWithCanvas();
+  this._checkCollisionWithBricks(bricks);
   this._checkCollisionWithPlayer(player);
+  this._checkCollisionWithCanvas();
 };
 
 Ball.prototype._checkCollisionWithCanvas = function() {
@@ -57,8 +54,26 @@ Ball.prototype._checkCollisionWithPlayer = function(player) {
 
 Ball.prototype._hitPlayerTop = function(player) {
   return (
-    this.y >= this.canvas.height - player.height - this.radius &&
-    this.x - this.radius >= player.x &&
-    this.x - this.radius <= player.x + player.width
+    this.y + this.radius >= player.y &&
+    this.x >= player.x &&
+    this.x + this.radius <= player.x + player.width
+  );
+};
+
+Ball.prototype._checkCollisionWithBricks = function(bricks) {
+  bricks.forEach(e => {
+    if (e.status == 1 && this._hitBrick(e)) {
+      this.speedY *= -1;
+      e.status = 0;
+    }
+  });
+};
+
+Ball.prototype._hitBrick = function(brick) {
+  return (
+    this.x > brick.x &&
+    this.x < brick.x + brick.width &&
+    this.y > brick.y &&
+    this.y < brick.y + brick.height
   );
 };

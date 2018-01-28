@@ -4,6 +4,7 @@ function Player(canvas, ctx) {
   this.height = canvas.width * 0.2;
   this.width = canvas.width * 0.2;
   this.x = (canvas.width - this.width) / 2;
+  this.y = canvas.height - this.height
   this.speed = 5;
   this.img = new Image();
   this.img.src =
@@ -16,7 +17,7 @@ Player.prototype.draw = function() {
   this.ctx.drawImage(
     this.img,
     this.x,
-    this.canvas.height - this.height,
+    this.y,
     this.width,
     this.height
   );

@@ -4,9 +4,11 @@ function Game(canvas, ctx) {
   this.intervalGameTime = 50;
   this.numBricks = 15;
 
-  this.ball = new Ball(50, 50, canvas, ctx);
   this.player = new Player(canvas, ctx);
+  this.ball = new Ball(this.player.x, this.player.y, canvas, ctx);
   this.bricks = this._createBricksArray();
+  this.movePlayer = false
+  this.moveBall = false
 }
 
 Game.prototype.start = function() {
@@ -18,7 +20,7 @@ Game.prototype.start = function() {
 
 Game.prototype.updateState = function() {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  if (this.ball.isMoving) this.ball.move(this.player);
+  if (this.moveBall) this.ball.move(this.player, this.bricks);
   this.ball.draw();
   this.player.draw();
   this.bricks.forEach(e => e.draw());
