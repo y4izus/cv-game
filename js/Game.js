@@ -4,7 +4,7 @@ function Game(canvas, ctx) {
   this.intervalGameTime = 50;
   this.numBricks = 15;
 
-  this.ball = new Ball(50, 50, ctx);
+  this.ball = new Ball(50, 50, canvas, ctx);
   this.player = new Player(canvas, ctx);
   this.bricks = this._createBricksArray();
 }
