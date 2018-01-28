@@ -18,7 +18,7 @@ Game.prototype.start = function() {
 
 Game.prototype.updateState = function() {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  if (this.ball.isMoving) this.ball.move();
+  if (this.ball.isMoving) this.ball.move(this.player);
   this.ball.draw();
   this.player.draw();
   this.bricks.forEach(e => e.draw());
