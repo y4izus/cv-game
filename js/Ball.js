@@ -3,8 +3,9 @@ function Ball(x, y, ctx) {
   this.x = x;
   this.y = y;
   this.radius = 10;
-  this.speed = 2;
+  this.speed = 7;
   this.intervalBallTime = 50;
+  this.isMoving = false;
   
   this.draw();
 }
@@ -17,7 +18,7 @@ Ball.prototype.draw = function () {
 };
 
 Ball.prototype.initMovement = function () {
-  this.ballIntervalId = setInterval(this.move.bind(this), this.intervalBallTime);
+  this.isMoving = true;
 };
 
 Ball.prototype.move = function (){
