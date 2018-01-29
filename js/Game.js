@@ -8,7 +8,7 @@ function Game(canvas, ctx) {
   this.player = new Player(canvas, ctx);
   this.showPlayer = true;
   this.movePlayer = false;
-  this.ball = new Ball(this.player.x, this.player.y, canvas, ctx);
+  this.ball = new Ball(this.player.x, this.player.y - 10, canvas, ctx);
   this.moveBall = false;
   this.bricks = this._createBricksArray();
 
@@ -46,9 +46,14 @@ Game.prototype.updateState = function() {
   if (this.discoveredLevels < 3) this.ball.draw();
   if (this.showPlayer) this.player.draw();
   this.bricks.forEach(e => e.draw());
-  this._drawProgress();
 
-  if (this.discoveredLevels === 3) this._stop();
+  if(this.discoveredLevels === 1) $("#education").removeAttr("hidden");
+  if(this.discoveredLevels === 2) $("#work-exp").removeAttr("hidden");
+  
+  if (this.discoveredLevels === 3) {
+    $("#lang").removeAttr("hidden");
+    this._stop();
+  }
   
   if (this.showLogo) {
     this.ctx.drawImage(
@@ -76,7 +81,6 @@ Game.prototype.updateState = function() {
       this.imgFinal.width,
       this.imgFinal.height
     );
-    $("#ver-cv").removeAttr("disabled");
   }
 };
 
@@ -98,10 +102,6 @@ Game.prototype._createBricksArray = function() {
 
     return e;
   });
-};
-
-Game.prototype._drawProgress = function() {
-  $("progress").attr("value", this.discoveredLevels * 33.3333333);
 };
 
 Game.prototype._stop = function() {

@@ -9,6 +9,7 @@
       <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="css/style.css">
 
+
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
       <script src="js/Ball.js"></script>
@@ -42,9 +43,33 @@
 
       <div hidden id="wrapper">
             <canvas id="myCanvas" width="640" height="480"></canvas>
-            <progress max="100" value="0"></progress>
-            <!-- <button disabled="true" id="ver-cv" onclick="verCV()">Ver CV</button> -->
-            <button id="ver-cv" onclick="verCV()">Ver CV</button>
+            <!-- <progress max="100" value="0" width="640"></progress> -->
+            <div>
+                  <div id="education" hidden class="card">
+                        <div class="container">
+                              <h5>
+                                    <b>FORMACION</b>
+                              </h5>
+                              <p>Interior Designer</p>
+                        </div>
+                  </div>
+                  <div id="work-exp" hidden class="card">
+                        <div class="container">
+                              <h5>
+                                    <b>EXPERIENCIA LABORAL</b>
+                              </h5>
+                              <p>Interior Designer</p>
+                        </div>
+                  </div>
+                  <div id="lang" hidden class="card">
+                        <div class="container">
+                              <h5>
+                                    <b>IDIOMAS</b>
+                              </h5>
+                              <p>Interior Designer</p>
+                        </div>
+                  </div>
+            </div>
       </div>
 
       <div hidden id="cv">

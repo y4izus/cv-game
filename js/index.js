@@ -6,7 +6,7 @@ function initGame() {
   game.start();
 
   $("#instructions").css({ display: "none" });
-  $("#wrapper").css({ display: "block" });
+  $("#wrapper").css({ display: "flex" , justifyContent: "space-around"});
 
   //TODO improve movement
   $(document).on("keydown", e => {
