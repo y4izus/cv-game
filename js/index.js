@@ -17,8 +17,3 @@ function initGame() {
       game.player.move('left');
   });
 }
-
-function verCV(){
-  $("#wrapper").css({ display: "none" });
-  $("#cv").css({ display: "block" });
-}

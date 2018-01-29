@@ -28,7 +28,11 @@ class Brick {
       if (this.hasInfo) {
         this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
       } else {
-        this.ctx.fillStyle = "#000000";
+        this.ctx.fillStyle = "red";
+        this.ctx.shadowColor = "#999";
+        this.ctx.shadowBlur = 10;
+        this.ctx.shadowOffsetX = 5;
+        this.ctx.shadowOffsetY = 5;
         this.ctx.fill();
       }
 
