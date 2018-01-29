@@ -56,34 +56,9 @@ class Game {
       this._stop();
     }
 
-    if (this.showLogo) {
-      this.ctx.drawImage(
-        this.logo.img,
-        this.logo.x,
-        this.logo.y,
-        this.logo.width,
-        this.logo.height
-      );
-      this.logo.y += 7;
-      if (this.showPlayer) this.player.center();
-    }
+    if (this.showLogo) this._showLogoAnimation()
 
-    if (
-      this.logo.y + this.logo.height >
-      this.canvas.height - this.player.height
-    ) {
-      this.showPlayer = false;
-      this.showLogo = false;
-
-      this.ctx.drawImage(
-        this.imgFinal.img,
-        this.canvas.width - this.imgFinal.width,
-        this.canvas.height - this.imgFinal.height,
-        this.imgFinal.width,
-        this.imgFinal.height
-      );
-      $("#final-links").removeAttr("hidden");
-    }
+    if (this._logoHitsPlayer()) this._showFinal();
   }
 
   _stop() {
@@ -112,5 +87,37 @@ class Game {
 
       return e;
     });
+  }
+
+  _showLogoAnimation(){
+    this.ctx.drawImage(
+      this.logo.img,
+      this.logo.x,
+      this.logo.y,
+      this.logo.width,
+      this.logo.height
+    );
+    this.logo.y += 7;
+    if (this.showPlayer) this.player.center();
+  }
+
+  _logoHitsPlayer() {
+    return (
+      this.logo.y + this.logo.height > this.canvas.height - this.player.height
+    );
+  }
+
+  _showFinal() {
+    this.showPlayer = false;
+    this.showLogo = false;
+
+    this.ctx.drawImage(
+      this.imgFinal.img,
+      this.canvas.width - this.imgFinal.width,
+      this.canvas.height - this.imgFinal.height,
+      this.imgFinal.width,
+      this.imgFinal.height
+    );
+    $("#final-links").removeAttr("hidden");
   }
 }
