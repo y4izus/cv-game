@@ -131,3 +131,14 @@ button[disabled]{
 th, td {
   border-bottom: 1px solid #ddd;
 }
+
+#final-links{
+  margin: auto;
+  font-family: "Press Start 2P", cursive;
+  text-align: justify;
+  color: #fff
+}
+
+#final-links img{
+  width: 50px;
+}

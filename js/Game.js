@@ -82,6 +82,7 @@ class Game {
         this.imgFinal.width,
         this.imgFinal.height
       );
+      $("#final-links").removeAttr("hidden");
     }
   }
 
@@ -94,7 +95,7 @@ class Game {
   _createBricksArray() {
     let column = 0;
     let row = 0;
-    
+
     return Array.apply(null, { length: this.numBricks }).map((e, i) => {
       e = new Brick(this.canvas, this.ctx);
       e.x = column * (e.width + e.padding) + e.offsetLeft;
