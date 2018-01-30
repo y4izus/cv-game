@@ -117,7 +117,7 @@ button[disabled]{
   color: #666666;
 }
 .card {
-  background: url('https://wallpapercave.com/wp/e7b5p3t.jpg');
+  background: url('http://st2.depositphotos.com/1007752/8404/i/170/depositphotos_84042256-stock-photo-beige-cardboard-rice-art-paper.jpg');
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   font-family: 'Cutive Mono', monospace;
   border-radius: 5px;
@@ -129,7 +129,7 @@ button[disabled]{
 }
 
 th, td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #555;
 }
 
 #final-links{

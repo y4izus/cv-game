@@ -44,6 +44,10 @@ class Game {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     if (this.moveBall) this.ball.move(this);
+    else {
+      this.ball.x = this.player.x;
+      this.ball.y = this.player.y - 10;
+    }
     if (this.discoveredLevels < 3) this.ball.draw();
     if (this.showPlayer) this.player.draw();
     this.bricks.forEach(e => e.draw());
@@ -56,7 +60,7 @@ class Game {
       this._stop();
     }
 
-    if (this.showLogo) this._showLogoAnimation()
+    if (this.showLogo) this._showLogoAnimation();
 
     if (this._logoHitsPlayer()) this._showFinal();
   }
@@ -89,7 +93,7 @@ class Game {
     });
   }
 
-  _showLogoAnimation(){
+  _showLogoAnimation() {
     this.ctx.drawImage(
       this.logo.img,
       this.logo.x,
