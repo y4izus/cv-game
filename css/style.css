@@ -8,7 +8,7 @@ canvas {
 
 #myCanvas {
   background-size: 100% 100%;
-  background-image: url('https://cms-assets.tutsplus.com/legacy-premium-tutorials/posts/13764/images/13764_38a9e1afcc5a9ca2ccca744429df83c9.jpg');
+  background-image: url("https://cms-assets.tutsplus.com/legacy-premium-tutorials/posts/13764/images/13764_38a9e1afcc5a9ca2ccca744429df83c9.jpg");
 }
 
 #instructions {
@@ -18,10 +18,10 @@ canvas {
   display: block;
   font-family: "Press Start 2P", cursive;
   text-align: justify;
-  color: #fff
+  color: #fff;
 }
 
-li>b {
+li > b {
   font-size: 30px;
 }
 
@@ -71,9 +71,9 @@ button:hover span:after {
 }
 
 .card {
-  background: url('http://st2.depositphotos.com/1007752/8404/i/170/depositphotos_84042256-stock-photo-beige-cardboard-rice-art-paper.jpg');
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  font-family: 'Cutive Mono', monospace;
+  background: url("http://st2.depositphotos.com/1007752/8404/i/170/depositphotos_84042256-stock-photo-beige-cardboard-rice-art-paper.jpg");
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Cutive Mono", monospace;
   border-radius: 5px;
   margin: 5px;
 }
@@ -82,17 +82,22 @@ button:hover span:after {
   padding: 2px 10px;
 }
 
-th, td {
+th,
+td {
   border-bottom: 1px solid #555;
 }
 
-#final-links{
+#final-link {
   margin: auto;
   font-family: "Press Start 2P", cursive;
   text-align: justify;
-  color: #fff
+  color: #fff;
 }
 
-#final-links img{
+#final-link img {
   width: 50px;
+}
+
+#final-link a {
+  text-decoration: none;
 }

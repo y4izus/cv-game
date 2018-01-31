@@ -127,6 +127,6 @@ class Game {
       this.imgFinal.width,
       this.imgFinal.height
     );
-    $("#final-links").removeAttr("hidden");
+    $("#final-link").removeAttr("hidden");
   }
 }
