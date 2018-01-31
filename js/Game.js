@@ -49,6 +49,9 @@ class Game {
     }
     if (this.discoveredLevels < 3) this.ball.draw();
 
+    if (this.player.x > this.canvas.width - this.player.width)
+      this.moveRight = false;
+    if (this.player.x < 0) this.moveLeft = false;
     if (this.moveRight) this.player.move("right");
     if (this.moveLeft) this.player.move("left");
     if (this.showPlayer) this.player.draw();
@@ -67,29 +70,28 @@ class Game {
     if (this._logoHitsPlayer()) this._showFinal();
   }
 
-  
   _createBricksArray() {
     let column = 0;
     let row = 0;
-    
+
     return Array.apply(null, { length: this.numBricks }).map((e, i) => {
       e = new Brick(this.canvas, this.ctx);
       e.x = column * (e.width + e.padding) + e.offsetLeft;
       e.y = row * (e.height + e.padding) + e.offsetTop;
-      
+
       if (i === 2 || i === 5 || i === 13) e.hasInfo = true;
-      
+
       column++;
       i++;
       if (i % 5 === 0) {
         row++;
         column = 0;
       }
-      
+
       return e;
     });
   }
-  
+
   _stop() {
     this.showLogo = true;
     this.moveBall = false;

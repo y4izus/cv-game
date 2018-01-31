@@ -10,9 +10,8 @@ function initGame() {
 
   $(document).on("keydown", e => {
     if (e.keyCode == 38) game.ball.isMoving = true;
-    if (e.keyCode == 39 && game.player.x < canvas.width - game.player.width)
-      game.moveRight = true;
-    if (e.keyCode == 37 && game.player.x > 0) game.moveLeft = true;
+    if (e.keyCode == 39) game.moveRight = true;
+    if (e.keyCode == 37) game.moveLeft = true;
   });
 
   $(document).on("keyup", e => {
