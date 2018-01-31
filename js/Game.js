@@ -8,7 +8,8 @@ class Game {
 
     this.player = new Player(canvas, ctx);
     this.showPlayer = true;
-    this.movePlayer = false;
+    this.moveRight = false;
+    this.moveLeft = false;
     this.ball = new Ball(this.player.x, this.player.y - 10, canvas, ctx);
     this.moveBall = false;
     this.bricks = this._createBricksArray();
@@ -48,6 +49,10 @@ class Game {
       this.ball.x = this.player.x;
       this.ball.y = this.player.y - 10;
     }
+
+    if(this.moveRight) this.player.move("right")
+    if(this.moveLeft) this.player.move("left")
+
     if (this.discoveredLevels < 3) this.ball.draw();
     if (this.showPlayer) this.player.draw();
     this.bricks.forEach(e => e.draw());

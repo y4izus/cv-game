@@ -6,14 +6,20 @@ function initGame() {
   game.start();
 
   $("#instructions").css({ display: "none" });
-  $("#wrapper").css({ display: "flex" , justifyContent: "space-around"});
+  $("#wrapper").css({ display: "flex", justifyContent: "space-around" });
 
-  //TODO improve movement
   $(document).on("keydown", e => {
     if (e.keyCode == 38) game.moveBall = true;
     if (e.keyCode == 39 && game.player.x < canvas.width - game.player.width)
-      game.player.move('right');
+      game.moveRight = true;
     if (e.keyCode == 37 && game.player.x > 0) 
-      game.player.move('left');
+      game.moveLeft = true;
+  });
+
+  $(document).on("keyup", e => {
+    if (e.keyCode == 39)
+      game.moveRight = false;
+    if (e.keyCode == 37) 
+      game.moveLeft = false;
   });
 }
