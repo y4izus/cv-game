@@ -29,7 +29,8 @@ class Game {
       width: canvas.width * 0.35,
       img: new Image()
     };
-    this.imgFinal.img.src = "./img/final-img.png";
+    this.imgFinal.img.src =
+    "./img/final-img.png";
   }
 
   start() {
