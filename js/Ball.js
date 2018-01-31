@@ -2,14 +2,19 @@ class Ball {
   constructor(x, y, canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
-    this.x = x;
-    this.y = y;
     this.radius = 10;
-    this.speedX = 10;
-    this.speedY = -10;
     this.intervalBallTime = 50;
 
+    this._initValues(x, y);
     this.draw();
+  }
+
+  _initValues(x, y) {
+    this.x = x;
+    this.y = y;
+    this.speedX = 10;
+    this.speedY = -10;
+    this.isMoving = false;
   }
 
   draw() {
@@ -24,15 +29,22 @@ class Ball {
     this.x += this.speedX;
     this._checkCollisionWithBricks(game);
     this._checkCollisionWithPlayer(game.player);
-    this._checkCollisionWithCanvas();
+    this._checkCollisionWithCanvas(game.player);
   }
-  _checkCollisionWithCanvas() {
-    if (this._hitCanvasTop() || this._hitCanvasBottom()) this.speedY *= -1;
+
+  _checkCollisionWithCanvas(player) {
+    if (this._hitCanvasBottom()) {
+      player.center();
+      this._initValues(player.x, player.y - this.radius);
+    }
+    if (this._hitCanvasTop()) this.speedY *= -1;
     if (this._hitCanvasLeft() || this._hitCanvasRight()) this.speedX *= -1;
   }
+
   _hitCanvasTop() {
     return this.y - this.radius <= 0;
   }
+
   _hitCanvasBottom() {
     return this.y >= this.canvas.height - this.radius;
   }

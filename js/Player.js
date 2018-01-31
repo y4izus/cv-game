@@ -12,9 +12,11 @@ class Player {
     this.center();
     this.draw();
   }
+  
   draw() {
     this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
+
   move(direction) {
     switch (direction) {
       case "left":
