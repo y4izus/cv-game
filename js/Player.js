@@ -7,7 +7,7 @@ class Player {
     this.speed = 7;
     this.img = new Image();
     this.img.src =
-      "https://www.dropbox.com/s/esxajjnx8emcytr/personbar.png?raw=1";
+      "./img/player.png";
 
     this.center();
     this.draw();
