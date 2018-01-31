@@ -29,8 +29,7 @@ class Game {
       width: canvas.width * 0.35,
       img: new Image()
     };
-    this.imgFinal.img.src =
-      "https://www.dropbox.com/s/es64182f9t25d2t/personwin.png?raw=1";
+    this.imgFinal.img.src = "./img/final-img.png";
   }
 
   start() {
